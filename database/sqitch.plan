@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=car-shopping
+
+initschema 2023-08-17T00:52:01Z Devin Moore <devinmoore787@gmail.com> # Add initial schema
