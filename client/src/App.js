@@ -1,6 +1,10 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function App() {
   const [cars, setCars] = useState([
@@ -36,21 +40,30 @@ function App() {
   }, []);
 
   return (
-    <div>
-      {cars.map((car) => {
-        return (
-          <div style={{ marginBottom: '20px' }} key={car.id}>
-            <div>Car: {car.name}</div>
-            <div>Year: {car.year}</div>
-            <div>Model: {car.model}</div>
-            <div>Make: {car.make}</div>
-            <div>Trim: {car.trim}</div>
-            <div>Color: {car.color}</div>
-            <div>Options: {car.options?.join(', ')}</div>
-          </div>
-        );
-      })}
-    </div>
+    <Container>
+      <Row>
+        {cars.map((car) => {
+          return (
+            <Col>
+              <Card key={car.id}>
+                <Card.Img variant="top" src="https://placehold.co/300x180" />
+                <Card.Body>
+                  <Card.Title>{car.name}</Card.Title>
+                  <Card.Text>
+                    <div>Year: {car.year}</div>
+                    <div>Model: {car.model}</div>
+                    <div>Make: {car.make}</div>
+                    <div>Trim: {car.trim}</div>
+                    <div>Color: {car.color}</div>
+                    <div>Options: {car.options?.join(', ')}</div>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 }
 
