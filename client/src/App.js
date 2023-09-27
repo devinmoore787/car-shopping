@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [cars, setCars] = useState([
@@ -46,7 +47,7 @@ function App() {
           return (
             <Col>
               <Card key={car.id}>
-                <Card.Img variant="top" src="https://placehold.co/300x180" />
+                <Card.Img variant="top" src="https://picsum.photos/300/180" />
                 <Card.Body>
                   <Card.Title>{car.name}</Card.Title>
                   <Card.Text>
@@ -57,6 +58,9 @@ function App() {
                     <div>Color: {car.color}</div>
                     <div>Options: {car.options?.join(', ')}</div>
                   </Card.Text>
+                  <Button variant="primary stretched-link" size="sm">
+                    View Car
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>

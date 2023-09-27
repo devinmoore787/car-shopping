@@ -3,7 +3,7 @@
 BEGIN;
 
 CREATE TABLE "options" (
-  "id" integer,
+  "id" int generated always as identity,
   "name" varchar,
   "created_at" timestamp,
   "updated_at" timestamp,
@@ -11,7 +11,7 @@ CREATE TABLE "options" (
 );
 
 CREATE TABLE "makes" (
-  "id" integer,
+  "id" int generated always as identity,
   "name" varchar,
   "created_at" timestamp,
   "updated_at" timestamp,
@@ -19,7 +19,7 @@ CREATE TABLE "makes" (
 );
 
 CREATE TABLE "models" (
-  "id" integer,
+  "id" int generated always as identity,
   "name" varchar,
   "make_id" integer,
   "created_at" timestamp,
@@ -31,7 +31,7 @@ CREATE TABLE "models" (
 );
 
 CREATE TABLE "colors" (
-  "id" integer,
+  "id" int generated always as identity,
   "name" varchar,
   "created_at" timestamp,
   "updated_at" timestamp,
@@ -39,7 +39,7 @@ CREATE TABLE "colors" (
 );
 
 CREATE TABLE "trims" (
-  "id" integer,
+  "id" int generated always as identity,
   "name" varchar,
   "created_at" timestamp,
   "updated_at" timestamp,
@@ -47,7 +47,7 @@ CREATE TABLE "trims" (
 );
 
 CREATE TABLE "cars" (
-  "id" integer,
+  "id" int generated always as identity,
   "name" varchar,
   "year" date,
   "model_id" integer,
@@ -68,7 +68,7 @@ CREATE TABLE "cars" (
 );
 
 CREATE TABLE "car_option" (
-  "id" integer,
+  "id" int generated always as identity,
   "car_id" integer,
   "option_id" integer,
   PRIMARY KEY ("id"),
@@ -79,6 +79,8 @@ CREATE TABLE "car_option" (
     FOREIGN KEY ("car_id")
       REFERENCES "cars"("id")
 );
+
+
 
 
 
