@@ -1,35 +1,19 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import {
+  Breadcrumb,
+  Button,
+  Col,
+  Container,
+  Form,
+  Row,
+  Card,
+} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function App() {
-  const [cars, setCars] = useState([
-    {
-      id: 1,
-      name: 'Honda CR-V',
-      year: 2020,
-      model: 'Honda',
-      make: 'CR-V',
-      trim: 'EX-L',
-      color: 'Blue',
-      options: ['Leather', 'Sun Roof', 'Alloy Rims'],
-    },
-    {
-      id: 2,
-      name: 'Honda Civic',
-      year: 2007,
-      model: 'Honda',
-      make: 'Civic',
-      trim: 'EX',
-      color: 'Black',
-      options: ['Sun Roof', 'Alloy Rims', 'Rust'],
-    },
-  ]);
+  const [cars, setCars] = useState([]);
 
   useEffect(() => {
     axios({
@@ -42,6 +26,17 @@ function App() {
 
   return (
     <Container>
+      <Row>
+        <Breadcrumb>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: '/' }}>
+            Home
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>Cars</Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: '/cars/create' }}>
+            Create
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </Row>
       <Row>
         {cars.map((car) => {
           return (
