@@ -1,15 +1,13 @@
 const express = require('express');
-const {
-  getCarsHandler,
-  createCarHandler,
-  getMakesHandler,
-} = require('./handlers');
+const handler = require('./handlers');
 const router = express.Router();
 
-router.get('/api/cars', getCarsHandler);
+router.get('/api/cars', handler.getCarsHandler);
 
-router.post('/api/cars', createCarHandler);
+router.post('/api/cars', handler.createCarHandler);
 
-router.get('/api/makes', getMakesHandler);
+router.get('/api/makes', handler.getMakesHandler);
+
+router.get('/api/colors', handler.getColorsHandler);
 
 module.exports = router;
